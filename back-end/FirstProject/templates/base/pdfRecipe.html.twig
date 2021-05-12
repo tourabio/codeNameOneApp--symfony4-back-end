@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <h1>Payment Receipt</h1>
+    <div class="invoice-box">
+        <table>
+            <tbody><tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tbody><tr>
+                            <td class="title">
+                            </td>
+
+                            <td>
+                                Receipt #: {{ depense.id }}<br>
+                                Created: {{ depense.date ? depense.date|date('Y-m-d') : '' }}<br>
+
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </td>
+            </tr>
+
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tbody><tr>
+                            <td>
+                                Elevation, Inc.<br>
+                                Tunisia
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tbody><tr>
+                            <td>
+                                {{ user.name }}<br>
+                                {{ user.familyName }}<br>
+                                {{ user.Email }}<br>
+                                {{ user.Class }}<br>
+                                Tunisia
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+
+
+            <tr class="total">
+                <td></td>
+
+                <td><h4>Total: {{ depense.valeur }} DT </h4></td>
+            </tr>
+            </tbody></table>
+    </div>
+
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block body %}
+
+    <h2>Mes Paiments</h2>
+
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-unstyled">
+                <!-- notice item -->
+                {% for d in depenses %}
+                    <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+                        <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0" style="width: 100px;"><span class="h2 d-block">{{ d.date ? d.date|date('d') : '' }}</span>{{ d.date ? d.date|date('M') : '' }},{{ d.date ? d.date|date('Y') : '' }}</div>
+                        <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+                            <p href="" class="h4 mb-3 d-block">{{ d.justificatif }}</p>
+                            <p class="mb-0">{{ d.description }}</p>
+                            <p>{{ d.valeur }} DT</p>
+                        </div>
+                        <div class="d-md-table-cell text-right pr-0 pr-md-4" ><a href="{{ path('student_recu', {'id': d.id}) }}" class="btn btn-info" style="width: 200px;">Imprimer Reçu</a></div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

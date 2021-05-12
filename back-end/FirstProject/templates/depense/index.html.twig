@@ -1,0 +1,43 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Depense index{% endblock %}
+
+{% block body %}
+    <h1>Depense index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Valeur</th>
+                <th>Source</th>
+                <th>Description</th>
+                <th>Justificatif</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for depense in depenses %}
+            <tr>
+                <td>{{ depense.id }}</td>
+                <td>{{ depense.valeur }}</td>
+                <td>{{ depense.source }}</td>
+                <td>{{ depense.description }}</td>
+                <td>{{ depense.justificatif }}</td>
+                <td>{{ depense.date ? depense.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('depense_show', {'id': depense.id}) }}">show</a>
+                    <a href="{{ path('depense_edit', {'id': depense.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('depense_new') }}">Create new</a>
+{% endblock %}

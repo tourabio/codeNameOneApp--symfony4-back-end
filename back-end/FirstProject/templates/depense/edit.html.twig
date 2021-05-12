@@ -1,0 +1,13 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Edit Depense{% endblock %}
+
+{% block body %}
+    <h1>Edit Depense</h1>
+
+    {{ include('depense/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('depense_index') }}">back to list</a>
+
+    {{ include('depense/_delete_form.html.twig') }}
+{% endblock %}

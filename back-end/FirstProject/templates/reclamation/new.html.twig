@@ -1,0 +1,15 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}New Reclamation{% endblock %}
+
+{% block body %}
+    <div class="row">
+    <h3>Create new Reclamation</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+    {{ include('reclamation/_form.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

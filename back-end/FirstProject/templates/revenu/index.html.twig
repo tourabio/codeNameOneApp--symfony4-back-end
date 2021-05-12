@@ -1,0 +1,43 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Revenu index{% endblock %}
+
+{% block body %}
+    <h1>Revenu index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Valeur</th>
+                <th>Source</th>
+                <th>Description</th>
+                <th>Justificatif</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for revenu in revenus %}
+            <tr>
+                <td>{{ revenu.id }}</td>
+                <td>{{ revenu.valeur }}</td>
+                <td>{{ revenu.source }}</td>
+                <td>{{ revenu.description }}</td>
+                <td>{{ revenu.justificatif }}</td>
+                <td>{{ revenu.date ? revenu.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('revenu_show', {'id': revenu.id}) }}">show</a>
+                    <a href="{{ path('revenu_edit', {'id': revenu.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('revenue_new') }}">Create new</a>
+{% endblock %}

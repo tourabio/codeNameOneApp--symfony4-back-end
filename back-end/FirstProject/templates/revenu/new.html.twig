@@ -1,0 +1,11 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}New Revenu{% endblock %}
+
+{% block body %}
+    <h1>Create new Revenu</h1>
+
+    {{ include('revenu/_form.html.twig') }}
+
+    <a href="{{ path('revenu_index') }}">back to list</a>
+{% endblock %}

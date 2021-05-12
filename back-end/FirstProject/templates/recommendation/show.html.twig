@@ -1,0 +1,38 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Recommendation{% endblock %}
+
+{% block body %}
+    <h1>Recommendation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ recommendation.id }}</td>
+            </tr>
+            <tr>
+                <th>Sujet</th>
+                <td>{{ recommendation.sujet }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ recommendation.comment }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ recommendation.date ? recommendation.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ recommendation.etat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('recommendation_index') }}">back to list</a>
+
+    <a href="{{ path('recommendation_edit', {'id': recommendation.id}) }}">edit</a>
+
+    {{ include('recommendation/_delete_form.html.twig') }}
+{% endblock %}

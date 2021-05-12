@@ -1,0 +1,42 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Revenu{% endblock %}
+
+{% block body %}
+    <h1>Revenu</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ revenu.id }}</td>
+            </tr>
+            <tr>
+                <th>Valeur</th>
+                <td>{{ revenu.valeur }}</td>
+            </tr>
+            <tr>
+                <th>Source</th>
+                <td>{{ revenu.source }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ revenu.description }}</td>
+            </tr>
+            <tr>
+                <th>Justificatif</th>
+                <td>{{ revenu.justificatif }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ revenu.date ? revenu.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('revenu_index') }}">back to list</a>
+
+    <a href="{{ path('revenu_edit', {'id': revenu.id}) }}">edit</a>
+
+    {{ include('revenu/_delete_form.html.twig') }}
+{% endblock %}
